@@ -1,36 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function Appbar() {
-  return (    
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-          <Image
-            src="/logo.png"
-            width={200}
-            height={500}
-            alt="Picture of the author"
+function Appbar({onMenuToggle}) {
+  return (
+    <div className="flex justify-between items-center bg-orange-600 p-4">
+      <div className="text-orange-50">My App</div>
+      <button onClick={onMenuToggle}>
+        <svg
+          class="w-6 h-6 text-orange-50 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 16 12"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M1 1h14M1 6h14M1 11h7"
           />
-        </a>
-
-        <div className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <Link href="/post" className="mr-5">
-            Home
-          </Link>
-          <Link href="/" className="mr-5">
-            Home
-          </Link>
-          <Link href="/" className="mr-5">
-            Home
-          </Link>
-          <Link href="/" className="mr-5">
-            Home
-          </Link>
-        </div>
-        <button className="inline-flex items-center bg-yellow-500 border-0 py-1 px-3 mt-4 md:mt-0">
-          Login
-        </button>
-      </div>    
+        </svg>
+      </button>
+    </div>
   );
 }
 
