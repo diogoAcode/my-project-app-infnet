@@ -1,11 +1,7 @@
-
-
-
-
 const Drawer = ({ isOpen, onClose }) => {
   const drawerStyle = {
-    transform: isOpen ? 'translateX(0%)' : 'translateX(-100%)',
-  }
+    transform: isOpen ? "translateX(0%)" : "translateX(-100%)",
+  };
 
   return (
     <div
@@ -34,9 +30,9 @@ const Drawer = ({ isOpen, onClose }) => {
         >
           <path
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
           />
         </svg>
@@ -92,9 +88,9 @@ const Drawer = ({ isOpen, onClose }) => {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
                 />
               </svg>
@@ -124,9 +120,6 @@ const Drawer = ({ isOpen, onClose }) => {
       </div>
     </div>
   );
-
-
-  
-}
+};
 
 export default Drawer;
