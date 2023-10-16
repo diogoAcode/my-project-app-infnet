@@ -1,9 +1,16 @@
-import Image from 'next/image'
+import Appbar from "@/components/Appbar";
+import Bottom from "@/components/Bottom";
+
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      lasdbvdaskgbfkasdb
+    <main className="min-h-screen bg-white">
+      <Appbar></Appbar>
+      <Bottom></Bottom>
+
+
+
+
     </main>
-  )
+  );
 }
