@@ -1,11 +1,18 @@
 "use client";
+import "tailwindcss/tailwind.css";
 import Appbar from "@/app/components/Appbar";
 import Bottom from "@/app/components/Bottom";
 import Drawer from "@/app/components/Drawer";
+import React, { useContext, useEffect, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
-import "tailwindcss/tailwind.css";
+import { fetchProducts } from "@/app/utils/api";
+import { CartContext } from "@/app/contexts/CartContext";
+import {
+  ProductContainer,
+  ProductImage,
+  CardButton,
+} from "@/app/styles/ProductsStyles";
 
 const ProductsPage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState();
@@ -17,15 +24,45 @@ const ProductsPage = () => {
   const { data: session } = useSession();
   const router = useRouter();
 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const productsData = await fetchProducts();
+      setProducts(productsData);
+    };
+    getProducts();
+  }, []);
+
   return (
     <main className="min-h-screen">
       <Appbar onMenuToggle={handleMenuToggle}></Appbar>
       <Drawer isOpen={isDrawerOpen} onClose={handleMenuToggle}></Drawer>
-        Produtos
+
+      <h1> Produtos da Loja Virtual </h1>
+
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <ProductContainer>
+              <ProductImage src={product.image} width={200} />
+              <p>{product.title}</p>
+              <p>{product.price}</p>
+              <p>{product.description}</p>
+              <p>{product.category} </p>
+              <CardButton onClick={() => addToCart(product)}>
+                Add cart
+              </CardButton>
+            </ProductContainer>
+          </li>
+        ))}
+      </ul>
+
       <Bottom></Bottom>
     </main>
   );
 };
 export default ProductsPage;
 
-// https://fakestoreapi.com/
+// // https://fakestoreapi.com/
+// https://deckofcardsapi.com/

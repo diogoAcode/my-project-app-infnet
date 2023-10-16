@@ -4,7 +4,7 @@ import Link from "next/link";
 function Appbar({ onMenuToggle }) {
   return (
     <div className="flex justify-between items-center bg-orange-600 p-4">
-      <div className="text-orange-50">My App</div>
+      <div className="text-orange-50">Infnet e-commerce</div>
       <button onClick={onMenuToggle}>
         <svg
           className="w-6 h-6 text-orange-50 dark:text-white"
