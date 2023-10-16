@@ -1,10 +1,11 @@
 "use client";
-import Appbar from "./components/Appbar";
-import Bottom from "./components/Bottom";
-import Drawer from "./components/Drawer";
+import Appbar from "@/app/components/Appbar";
+import Bottom from "@/app/components/Bottom";
+import Drawer from "@/app/components/Drawer";
 import React, { useState } from "react";
+import "@/app/globals.css";
 
-export default function Home() {
+const LoginPage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState();
 
   const handleMenuToggle = () => {
@@ -16,7 +17,13 @@ export default function Home() {
       <Appbar onMenuToggle={handleMenuToggle}></Appbar>
       <Drawer isOpen={isDrawerOpen} onClose={handleMenuToggle}></Drawer>
 
+
+      
+      
       <Bottom></Bottom>
     </main>
   );
-}
+};
+
+
+export default LoginPage; 
