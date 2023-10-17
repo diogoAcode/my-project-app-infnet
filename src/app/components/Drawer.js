@@ -1,15 +1,43 @@
 import Link from "next/link";
+import React, { useContext } from "react";
+import { ThemeContext } from "@/app/contexts/ThemeContext";
 
 const Drawer = ({ isOpen, onClose }) => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   const drawerStyle = {
     transform: isOpen ? "translateX(0%)" : "translateX(-100%)",
   };
 
   return (
     <div
-      className="fixed top-0 left-0 h-full w-64 bg-orange-700 text-orange-50 p-4"
+      className={`fixed top-0 left-0 h-full w-64 ${
+        theme === "dark" ? "bg-gray-800" : "bg-orange-800 text-white"
+      } p-4`}
       style={drawerStyle}
     >
+      <label className="relative inline-flex items-center cursor-pointer">
+        <input
+          type="checkbox"
+          value=""
+          className="sr-only peer"
+          onClick={toggleTheme}
+          checked={theme === "dark"}
+        ></input>
+        <div
+          className={`w-11 h-6 ${
+            theme === "dark"
+              ? "bg-gray-700 peer-checked:bg-blue-600 "
+              : "bg-orange-500 peer-checked:white"
+          } peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-50 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600`}
+        ></div>
+
+        <span className="ml-3 text-sm font-medium text-orange-50">
+          {theme === "dark" ? "Tema Escuro" : "Tema claro"}
+        </span>
+
+      </label>
+
       <h5
         id="drawer-navigation-label"
         className="text-base font-semibold text-orange-50 uppercase dark:text-gray-400"
@@ -60,10 +88,7 @@ const Drawer = ({ isOpen, onClose }) => {
           </li>
           <li>
             <Link href={"/products"}>
-              <div
-                
-                className="flex items-center p-2 text-orange-50 hover:text-orange-900 rounded-lg dark:text-orange-50 hover:bg-gray-100 dark:hover:bg-gray-700 group"
-              >
+              <div className="flex items-center p-2 text-orange-50 hover:text-orange-900 rounded-lg dark:text-orange-50 hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-orange-50 transition duration-75 dark:text-gray-400 group-hover:text-orange-900 dark:group-hover:text-orange-50"
                   aria-hidden="true"
@@ -79,10 +104,7 @@ const Drawer = ({ isOpen, onClose }) => {
           </li>
           <li>
             <Link href={"/cart"}>
-              <div
-               
-                className="flex items-center p-2 text-orange-50 hover:text-orange-900 rounded-lg dark:text-orange-50 hover:bg-gray-100 dark:hover:bg-gray-700 group"
-              >
+              <div className="flex items-center p-2 text-orange-50 hover:text-orange-900 rounded-lg dark:text-orange-50 hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-orange-50 transition duration-75 dark:text-gray-400 group-hover:text-orange-900 dark:group-hover:text-orange-50"
                   aria-hidden="true"
@@ -98,10 +120,7 @@ const Drawer = ({ isOpen, onClose }) => {
           </li>
           <li>
             <Link href={"/login"}>
-              <div
-                 
-                className="flex items-center p-2 text-orange-50 hover:text-orange-900 rounded-lg dark:text-orange-50 hover:bg-gray-100 dark:hover:bg-gray-700 group"
-              >
+              <div className="flex items-center p-2 text-orange-50 hover:text-orange-900 rounded-lg dark:text-orange-50 hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-orange-50 transition duration-75 dark:text-gray-400 group-hover:text-orange-900 dark:group-hover:text-orange-50"
                   aria-hidden="true"
@@ -123,10 +142,7 @@ const Drawer = ({ isOpen, onClose }) => {
           </li>
           <li>
             <Link href={"/"}>
-              <div
-                
-                className="flex items-center p-2 text-orange-50 hover:text-orange-900 rounded-lg dark:text-orange-50 hover:bg-gray-100 dark:hover:bg-gray-700 group"
-              >
+              <div className="flex items-center p-2 text-orange-50 hover:text-orange-900 rounded-lg dark:text-orange-50 hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-orange-50 transition duration-75 dark:text-gray-400 group-hover:text-orange-900 dark:group-hover:text-orange-50"
                   aria-hidden="true"
