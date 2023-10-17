@@ -71,6 +71,7 @@ const CompleteProfileForm = ({ user }) => {
           Nome:
         </label>
         <input
+          required
           {...register("name")}
           id="name"
           className="border rounded w-full py-2 px-3"
@@ -82,6 +83,7 @@ const CompleteProfileForm = ({ user }) => {
           E-mail:
         </label>
         <input
+          required
           {...register("email")}
           id="email"
           className="border rounded w-full py-2 px-3"
@@ -93,6 +95,7 @@ const CompleteProfileForm = ({ user }) => {
           Telefone:
         </label>
         <input
+          required
           {...register("phone")}
           id="phone"
           className="border rounded w-full py-2 px-3"
@@ -105,6 +108,7 @@ const CompleteProfileForm = ({ user }) => {
         </label>
 
         <input
+          required
           type="file"
           onChange={handleImageChange}
           accept="image/*"
@@ -138,7 +142,7 @@ const CompleteProfileForm = ({ user }) => {
           </div>
         </>
       )}
-        <br></br>
+      <br></br>
       <div className="flex justify">
         <button
           type="submit"
