@@ -13,6 +13,9 @@ import {
   ProductImage,
   CardButton,
 } from "@/app/styles/ProductsStyles";
+import Footer from "@/app/components/Footer";
+
+
 
 const ProductsPage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState();
@@ -61,7 +64,7 @@ const ProductsPage = () => {
         ))}
       </ul>
 
-      <Bottom></Bottom>
+      <Footer></Footer>
     </main>
   );
 };

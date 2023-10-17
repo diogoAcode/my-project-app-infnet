@@ -9,6 +9,7 @@ import {
   ProductImage,
   CardButton,
 } from "@/app/styles/ProductsStyles";
+import Footer from "@/app/components/Footer";
 
 const CartPage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState();
@@ -38,7 +39,7 @@ const CartPage = () => {
         ))}
       </ul>
 
-      <Bottom></Bottom>
+      <Footer></Footer>
     </main>
   );
 };

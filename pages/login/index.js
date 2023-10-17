@@ -2,6 +2,7 @@
 import Appbar from "@/app/components/Appbar";
 import Bottom from "@/app/components/Bottom";
 import Drawer from "@/app/components/Drawer";
+import Footer from "@/app/components/Footer";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -51,7 +52,7 @@ const LoginPage = () => {
         >
           Sign out
         </button>
-        <Bottom></Bottom>
+        <Footer></Footer>
       </main>
     );
   }

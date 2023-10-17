@@ -4,7 +4,7 @@ import Bottom from "./components/Bottom";
 import Drawer from "./components/Drawer";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState();
@@ -19,14 +19,13 @@ export default function Home() {
       <Appbar onMenuToggle={handleMenuToggle}></Appbar>
       <Drawer isOpen={isDrawerOpen} onClose={handleMenuToggle}></Drawer>
       {/* <button
-        className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 m-3 rounded-full"
-        onClick={() => router.push("/login")}
-      >
-        {" "}
-        Login
-      </button> */}
-
-      <Bottom ></Bottom>
+            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'
+            onClick={() => router.push("/login")}
+          >
+            {" "}
+            Login
+          </button> */}
+      <Footer></Footer>
     </main>
   );
 }
