@@ -16,6 +16,7 @@ import {
 
 const ProductsPage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState();
+  const { addToCart } = useContext(CartContext);
 
   const handleMenuToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -34,6 +35,8 @@ const ProductsPage = () => {
     getProducts();
   }, []);
 
+ 
+  
   return (
     <main className="min-h-screen">
       <Appbar onMenuToggle={handleMenuToggle}></Appbar>

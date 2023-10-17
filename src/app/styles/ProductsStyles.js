@@ -21,6 +21,6 @@ export const CardButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #2779bd;
+    background-color: #b22222;
   }
 `;
